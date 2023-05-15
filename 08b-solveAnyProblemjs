@@ -1,0 +1,40 @@
+/**
+ * We need a function thatt reverses whatever we pass into it.
+ *
+ * function reverse(value)
+ *
+ * if value type !string && !number && !array
+ * return value
+ *
+ * if value type == string
+ * reverse string
+ * if value type == number
+ * reverse number
+ * if value type == array
+ * reverse array
+ *
+ * return reversed value
+ *
+ * @format
+ */
+
+const reverseWhatever = function (value) {
+  if (
+    typeof value !== "string" &&
+    typeof value !== "number" &&
+    !Array.isArray(value)
+  ) {
+    return value;
+  } else if (typeof value === "string") {
+    return value.split("").reverse().join("");
+  } else if (typeof value === "number") {
+    return parseFloat(value.toString().split("").reverse().join(""));
+  } else if (Array.isArray(value)) {
+    return value.reverse();
+  }
+};
+
+console.log(reverseWhatever("Felix"));
+console.log(reverseWhatever(12345));
+console.log(reverseWhatever([1, 2, 3, 4, 5]));
+console.log(reverseWhatever({ firstName: "Felix" }));
